@@ -15,9 +15,11 @@ class Welcome extends AppController{
 
     //bind the navigation array to our data array so it can be passed into the view
     $data["nav"] = $this->nav;
+    $data["page"] = "home";
 
+    $this->parent->getView("header");
     $this->parent->getView("navigation",$data);
-    $this->parent->getView("body",$data);
+    $this->parent->getView("home",$data);
     $this->parent->getView("footer");
   }
 
@@ -25,9 +27,11 @@ class Welcome extends AppController{
     $data = array();
 
     $data["nav"] = $this->nav;
+    $data["page"] = "about";
 
+    $this->parent->getView("header");
     $this->parent->getView("navigation",$data);
-    $this->parent->getView("body",$data);
+    $this->parent->getView("about",$data);
     $this->parent->getView("footer");
   }
 
@@ -35,9 +39,11 @@ class Welcome extends AppController{
     $data = array();
 
     $data["nav"] = $this->nav;
+    $data["page"] = "contact";
 
+    $this->parent->getView("header");
     $this->parent->getView("navigation",$data);
-    $this->parent->getView("body",$data);
+    $this->parent->getView("contact",$data);
     $this->parent->getView("footer");
   }
 
