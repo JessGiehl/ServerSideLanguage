@@ -1,7 +1,6 @@
 <div class="mt-3 p-2">
   <div class="justify-content-center m-2">
-    <h2><? echo $this->urlPathParts[1]; ?></h2>
-    <p>This is the body of <? echo $this->urlPathParts[1]; ?>.</p>
+    <h2>Home</h2>
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">

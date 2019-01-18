@@ -9,10 +9,7 @@
     <meta name="author" content="">
 
     <!--NEED PHP PAGE NAME HERE-->
-    <title></title>
-
-    <!-- HEY JESS YOU NEED TO ADD THIS -->
-    <!-- Bootstrap core CSS -->
+    <title>Jessica Giehl - SSL</title>
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
 
