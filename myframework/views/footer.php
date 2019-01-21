@@ -20,7 +20,7 @@
           $.ajax({
             method:"POST",
             url:"/login/ajaxPars",
-            data:{"name":$("#name").val(),"password":$("#password").val()},
+            data:{"username":$("#username").val(),"password":$("#password").val()},
             success:function(msg){
               if(msg=="welcome"){
                 alert("Login Successful")
