@@ -1,6 +1,5 @@
-<h2>Login</h2>
-
 <div class="col-6 mx-auto m-10">
+  <h2>Login</h2>
   <?
   if(@$_GET["msg"]){
       echo "<p style=\"color:red\">".$_GET["msg"]."</p>";
@@ -54,8 +53,6 @@
     <button type="submit" name="" class="btn btn-primary">Login</button>
     <button type="button" id="ajaxbutton" class="btn btn-primary">Ajax Login</button>
   </form>
-  <?
-  var_dump($_SESSION["cap"]); ?>
 
 </div>
 <br/>

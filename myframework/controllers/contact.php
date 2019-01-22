@@ -10,7 +10,7 @@ class Contact extends AppController{
 
     $data["page"] = "Contact";
 
-    $data["nav"] = array("Home"=>"/", "About"=>"/about", "Contact"=>"/contact", "Register"=>"/register", "Login"=>"/login");
+    $data["nav"] = $this->parent->nav;
 
     $this->getView("header");
     $this->getView("navigation",$data);

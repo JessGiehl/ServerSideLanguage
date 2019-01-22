@@ -10,7 +10,7 @@ class Register extends AppController{
 
     $data["page"] = "Register";
 
-    $data["nav"] = array("Home"=>"/", "About"=>"/about", "Contact"=>"/contact", "Register"=>"/register", "Login"=>"/login");
+    $data["nav"] = $this->parent->nav;
 
     $this->getView("header");
     $this->getView("navigation",$data);
