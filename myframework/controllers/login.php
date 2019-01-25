@@ -36,25 +36,15 @@ class Login extends AppController{
     if($_REQUEST["username"] && $_REQUEST["password"]){
       //check if captcha was successful
       if ($_REQUEST["cap"] == $_SESSION["cap"]){
-        //read the user file and store it as an array
-        $lines = file('./bin/user.txt');
-        //seperate array for exploded values
-        $users = array();
 
-        //loop through each line of the user.txt
-        foreach ($lines as $line_num => $line) {
-          //and explode it using the delimiter, push those values into users array
-          array_push($users, explode('|', $line));
-
-          //check values in users array against the submitted values
-          if(strtolower($_REQUEST["username"])==strtolower($users[$line_num][0]) && $_REQUEST["password"]==$users[$line_num][1]){
-            //if there's a match, log them in!
-            $_SESSION["isloggedin"] = "1";
-            $_SESSION["name"] = $users[$line_num][0];
-            header("location:/dash/profile");
-          }
-        }
-        if($_SESSION["isloggedin"] == "0"){
+        $sql = "select * from users where name = :name and password = :password";
+        $values = array(":name"=>$_REQUEST["username"],":password"=>sha1($_REQUEST["password"]));
+        $userdata = $this->parent->getModel("users")->select($sql, $values);
+        if($userdata){
+          $_SESSION["isloggedin"] = "1";
+          $_SESSION["id"] = $userdata[0][0];
+          header("location:/dash/profile");
+        } else {
           header("location:/login?msg=Bad Login");
         }
       } else {

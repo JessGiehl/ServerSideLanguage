@@ -18,7 +18,15 @@ class dash extends AppController{
 
   public function profile(){
 
-    $this->parent->getView("profile");
+    //use the session id to find matching user
+    $sql = "select * from users where id = :id";
+    $values = array(":id"=>$_SESSION["id"]);
+    $userdata = $this->parent->getModel("users")->select($sql, $values);
+
+    $data["name"] = $userdata[0][1];
+    $data["bio"] = $userdata[0][3];
+
+    $this->parent->getView("profile", $data);
     $this->parent->getView("footer");
   }
 

@@ -44,12 +44,10 @@ class Register extends AppController{
         echo " Password must be between 4 and 12 digits long and include at least one numeric digit.";
       }
       if ($nameCheck && $passwordCheck){
-        echo "Successful Registration <br/>";
-        echo "Name: ".$name."<br/>";
-        echo "Password: ".$password."<br/>";
-        echo "Age: ".$_POST["age"]."<br/>";
-        echo "Gender: ".$_POST["gender"]."<br/>";
-        echo "Bio: ".$_POST["bio"]."<br/>";
+        $sql = "insert into users (name, password, bio) values(:name, :password, :bio)";
+        $val = array(":name"=>$name, ":password"=>sha1($password), ":bio"=>$_POST["bio"]);
+        $this->parent->getModel("users")->add($sql,$val);
+        header("location:/login?success=Registration successful, please log in.");
       } else {
         $this->getView("registerForm");
       }

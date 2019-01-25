@@ -4,6 +4,9 @@
   if(@$_GET["msg"]){
       echo "<p style=\"color:red\">".$_GET["msg"]."</p>";
     }
+  if(@$_GET["success"]){
+      echo "<p style=\"color:green\">".$_GET["success"]."</p>";
+    }
   ?>
   <form action="/login/validate" method="post" class="mb-10">
 
